@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D00EC17A1E088B6F00484BF4 /* FullPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00EC1791E088B6F00484BF4 /* FullPhotoViewController.swift */; };
 		D0B6A0371DF4C6D900ABC0B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6A0361DF4C6D900ABC0B8 /* AppDelegate.swift */; };
-		D0B6A0391DF4C6D900ABC0B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6A0381DF4C6D900ABC0B8 /* ViewController.swift */; };
 		D0B6A03C1DF4C6D900ABC0B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B6A03A1DF4C6D900ABC0B8 /* Main.storyboard */; };
 		D0B6A03F1DF4C6D900ABC0B8 /* PhotohostingIOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0B6A03D1DF4C6D900ABC0B8 /* PhotohostingIOS.xcdatamodeld */; };
 		D0B6A0411DF4C6D900ABC0B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0B6A0401DF4C6D900ABC0B8 /* Assets.xcassets */; };
 		D0B6A0441DF4C6D900ABC0B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0B6A0421DF4C6D900ABC0B8 /* LaunchScreen.storyboard */; };
+		D0B6A04C1DF4C93B00ABC0B8 /* PageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B6A04B1DF4C93B00ABC0B8 /* PageParser.swift */; };
+		D0FC464E1E089C2B00B8EBB2 /* AlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FC464D1E089C2B00B8EBB2 /* AlbumCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D00EC1791E088B6F00484BF4 /* FullPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullPhotoViewController.swift; path = ViewControllers/FullPhotoViewController.swift; sourceTree = "<group>"; };
 		D0B6A0331DF4C6D900ABC0B8 /* PhotohostingIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotohostingIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B6A0361DF4C6D900ABC0B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D0B6A0381DF4C6D900ABC0B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D0B6A03B1DF4C6D900ABC0B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D0B6A03E1DF4C6D900ABC0B8 /* PhotohostingIOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhotohostingIOS.xcdatamodel; sourceTree = "<group>"; };
 		D0B6A0401DF4C6D900ABC0B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0B6A0431DF4C6D900ABC0B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0B6A0451DF4C6D900ABC0B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0B6A04B1DF4C93B00ABC0B8 /* PageParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageParser.swift; path = Model/PageParser.swift; sourceTree = "<group>"; };
+		D0FC464D1E089C2B00B8EBB2 /* AlbumCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumCollectionViewController.swift; path = ViewControllers/AlbumCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +61,40 @@
 			isa = PBXGroup;
 			children = (
 				D0B6A0361DF4C6D900ABC0B8 /* AppDelegate.swift */,
-				D0B6A0381DF4C6D900ABC0B8 /* ViewController.swift */,
-				D0B6A03A1DF4C6D900ABC0B8 /* Main.storyboard */,
+				D0B6A04F1DF4C99400ABC0B8 /* ViewControllers */,
+				D0B6A04D1DF4C96B00ABC0B8 /* Model */,
+				D0B6A04E1DF4C97F00ABC0B8 /* Storyboards */,
 				D0B6A0401DF4C6D900ABC0B8 /* Assets.xcassets */,
-				D0B6A0421DF4C6D900ABC0B8 /* LaunchScreen.storyboard */,
 				D0B6A0451DF4C6D900ABC0B8 /* Info.plist */,
 				D0B6A03D1DF4C6D900ABC0B8 /* PhotohostingIOS.xcdatamodeld */,
 			);
 			path = PhotohostingIOS;
+			sourceTree = "<group>";
+		};
+		D0B6A04D1DF4C96B00ABC0B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0B6A04B1DF4C93B00ABC0B8 /* PageParser.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D0B6A04E1DF4C97F00ABC0B8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D0B6A03A1DF4C6D900ABC0B8 /* Main.storyboard */,
+				D0B6A0421DF4C6D900ABC0B8 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		D0B6A04F1DF4C99400ABC0B8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0FC464D1E089C2B00B8EBB2 /* AlbumCollectionViewController.swift */,
+				D00EC1791E088B6F00484BF4 /* FullPhotoViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,7 +124,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Кирилл Алексеев";
 				TargetAttributes = {
 					D0B6A0321DF4C6D900ABC0B8 = {
@@ -140,8 +170,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FC464E1E089C2B00B8EBB2 /* AlbumCollectionViewController.swift in Sources */,
 				D0B6A03F1DF4C6D900ABC0B8 /* PhotohostingIOS.xcdatamodeld in Sources */,
-				D0B6A0391DF4C6D900ABC0B8 /* ViewController.swift in Sources */,
+				D0B6A04C1DF4C93B00ABC0B8 /* PageParser.swift in Sources */,
+				D00EC17A1E088B6F00484BF4 /* FullPhotoViewController.swift in Sources */,
 				D0B6A0371DF4C6D900ABC0B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,6 +218,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -236,6 +269,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -306,6 +340,7 @@
 				D0B6A04A1DF4C6D900ABC0B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
