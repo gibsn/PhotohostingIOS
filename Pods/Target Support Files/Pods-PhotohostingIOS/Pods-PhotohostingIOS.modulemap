@@ -1,0 +1,6 @@
+framework module Pods_PhotohostingIOS {
+  umbrella header "Pods-PhotohostingIOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

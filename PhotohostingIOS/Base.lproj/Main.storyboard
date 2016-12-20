@@ -44,20 +44,20 @@
                                 </constraints>
                                 <size key="customSize" width="100" height="100"/>
                                 <connections>
-                                    <segue destination="vIu-OT-ruz" kind="show" id="hTH-u4-FAn"/>
+                                    <segue destination="vIu-OT-ruz" kind="show" id="Z2i-zp-9qn"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="W7d-ff-tr0" id="neZ-vl-8aS"/>
-                            <outlet property="delegate" destination="W7d-ff-tr0" id="Aom-sS-xOU"/>
+                            <outlet property="dataSource" destination="W7d-ff-tr0" id="kvc-Jj-neZ"/>
+                            <outlet property="delegate" destination="W7d-ff-tr0" id="3Mn-9m-pr9"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Photos" id="AfC-e3-7aH"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goz-CY-nqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1178" y="770"/>
+            <point key="canvasLocation" x="989.60000000000002" y="769.56521739130437"/>
         </scene>
         <!--Full Photo View Controller-->
         <scene sceneID="ZrZ-WQ-yKk">
@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLN-LG-zyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1893" y="770"/>
+            <point key="canvasLocation" x="1775" y="770"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yDT-wo-3Xu">
@@ -115,7 +115,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDi-ol-qJt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="438" y="771"/>
+            <point key="canvasLocation" x="218" y="770"/>
         </scene>
     </scenes>
 </document>
