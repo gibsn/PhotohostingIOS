@@ -10,26 +10,43 @@ import UIKit
 
 private let reuseIdentifier = "PhotoCell"
 
+
 class AlbumCollectionViewController:
     UIViewController,
     UICollectionViewDelegate,
     UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout
 {
-
+//    private var photosThumbs [some shit] = nil
+    private var photosFetcher = PhotosFetcher()
+    private var photosArr: [Photo]?
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.startAnimating()
+        
+        photosFetcher.getPhotos() { newPhotosArr in
+            self.photosArr = newPhotosArr
+        }
     }
     
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        if photosArr != nil {
+            return photosArr!.count
+        } else {
+            return 0
+        }
     }
+
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-        cell.backgroundColor = UIColor.red
+        
         return cell
     }
 }
