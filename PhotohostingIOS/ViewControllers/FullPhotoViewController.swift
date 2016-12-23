@@ -11,6 +11,7 @@ import UIKit
 
 class FullPhotoViewController: UIViewController {
     @IBOutlet var imgView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     public var photoIndex: Int = -1
     public var photosArr: [Photo]?
     
@@ -21,7 +22,12 @@ class FullPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.activityIndicator.startAnimating()
+        self.activityIndicator.hidesWhenStopped = true
+        
         let url = URL(string: self.photosArr![photoIndex].originalUrl)!
-        imgView.af_setImage(withURL: url)
+        imgView.af_setImage(withURL: url) { _ in
+            self.activityIndicator.stopAnimating()
+        }
     }
 }
