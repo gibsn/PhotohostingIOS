@@ -37,8 +37,16 @@ class AlbumCollectionViewController:
         }
     }
     
-    // TODO
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier! == "viewFullPhoto" {
+            let indexPath = self.collectionView.indexPath(for: sender as! UICollectionViewCell)!
+            
+            let controller = segue.destination as! FullPhotoViewController
+            controller.photoIndex = indexPath.item
+            controller.photosArr = self.photosArr
+            
+        }
     }
     
 
@@ -54,7 +62,7 @@ class AlbumCollectionViewController:
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ThumbnailController
 
-        let url = URL(string: self.photosArr![indexPath.row].thumbUrl)!
+        let url = URL(string: self.photosArr![indexPath.item].thumbUrl)!
         cell.setUrl(url)
 
         return cell

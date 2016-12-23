@@ -49,7 +49,7 @@
                                 <size key="customSize" width="100" height="100"/>
                                 <connections>
                                     <outlet property="imgView" destination="C3M-3c-N7h" id="yBl-hb-ebE"/>
-                                    <segue destination="vIu-OT-ruz" kind="show" id="Z2i-zp-9qn"/>
+                                    <segue destination="vIu-OT-ruz" kind="show" identifier="viewFullPhoto" id="Z2i-zp-9qn"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -71,7 +71,7 @@
         <!--Full Photo View Controller-->
         <scene sceneID="ZrZ-WQ-yKk">
             <objects>
-                <viewController id="vIu-OT-ruz" customClass="FullPhotoViewController" customModule="PhotohostingIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="vIu-OT-ruz" customClass="FullPhotoViewController" customModule="PhotohostingIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mwf-aY-PAF"/>
                         <viewControllerLayoutGuide type="bottom" id="Had-A6-EjZ"/>
@@ -80,17 +80,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hkK-3b-tG6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XCJ-DL-AbD">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="hkK-3b-tG6" firstAttribute="bottom" secondItem="Had-A6-EjZ" secondAttribute="top" id="9eB-gc-mwo"/>
-                            <constraint firstAttribute="trailing" secondItem="hkK-3b-tG6" secondAttribute="trailing" id="Tv4-3v-e9N"/>
-                            <constraint firstItem="hkK-3b-tG6" firstAttribute="top" secondItem="mwf-aY-PAF" secondAttribute="bottom" id="UeM-O5-PmV"/>
-                            <constraint firstItem="hkK-3b-tG6" firstAttribute="leading" secondItem="mpN-W3-aMX" secondAttribute="leading" id="UgL-7S-Pb5"/>
-                        </constraints>
                     </view>
                     <toolbarItems>
                         <barButtonItem systemItem="action" id="rnq-Pe-olI">
@@ -99,10 +94,13 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
+                    <connections>
+                        <outlet property="imgView" destination="XCJ-DL-AbD" id="nZd-e4-rgH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLN-LG-zyh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1775" y="770"/>
+            <point key="canvasLocation" x="1773.5999999999999" y="769.56521739130437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yDT-wo-3Xu">
