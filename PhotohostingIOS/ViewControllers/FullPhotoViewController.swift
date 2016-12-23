@@ -21,8 +21,6 @@ class FullPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.hidesBarsOnTap = true
-        
         let url = URL(string: self.photosArr![photoIndex].originalUrl)!
         imgView.af_setImage(withURL: url)
     }

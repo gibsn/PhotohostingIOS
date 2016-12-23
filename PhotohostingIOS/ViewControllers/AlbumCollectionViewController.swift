@@ -31,8 +31,8 @@ class AlbumCollectionViewController:
         photosFetcher.getPhotos() { newPhotosArr in
             if newPhotosArr != nil {
                 self.photosArr = newPhotosArr
-                self.activityIndicator.stopAnimating()
                 self.collectionView.reloadData()
+                self.activityIndicator.stopAnimating()
             }
         }
     }
