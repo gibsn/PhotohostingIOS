@@ -17,7 +17,6 @@ class AlbumCollectionViewController:
     UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout
 {
-//    private var photosThumbs [some shit] = nil
     private var photosFetcher = PhotosFetcher()
     private var photosArr: [Photo]?
     @IBOutlet var collectionView: UICollectionView!
@@ -26,11 +25,20 @@ class AlbumCollectionViewController:
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         
         photosFetcher.getPhotos() { newPhotosArr in
-            self.photosArr = newPhotosArr
+            if newPhotosArr != nil {
+                self.photosArr = newPhotosArr
+                self.activityIndicator.stopAnimating()
+                self.collectionView.reloadData()
+            }
         }
+    }
+    
+    // TODO
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
     
 
@@ -44,9 +52,19 @@ class AlbumCollectionViewController:
 
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ThumbnailController
+
+        let url = URL(string: self.photosArr![indexPath.row].thumbUrl)!
+        cell.setUrl(url)
+
         return cell
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 4
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 1
+//    }
 }

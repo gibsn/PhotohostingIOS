@@ -8,10 +8,8 @@
 
 import Foundation
 import Alamofire
-import AlamofireImage
 
-//              <img src="/thumbnails/ADAM-6_resized.png" alt="/thumbnails/ADAM-6_resized.png">
-//              <a href="/photos/qwe/ADAM-6.jpg">
+
 struct Photo {
     var thumbUrl: String
     var originalUrl: String
@@ -23,6 +21,7 @@ struct Photo {
 }
 
 class PhotosFetcher {
+    private let root = "http://gibsn.intelib.org/"
     private let URL = "http://gibsn.intelib.org/album/posvyat.html"
     private var photosArr: [Photo]? = nil
 
@@ -43,8 +42,8 @@ class PhotosFetcher {
             
             
             for match in matches {
-                let originalUrl = self.URL + nsString.substring(with: match.rangeAt(1))
-                let thumbUrl = self.URL + nsString.substring(with: match.rangeAt(2))
+                let originalUrl = self.root + nsString.substring(with: match.rangeAt(1))
+                let thumbUrl = self.root + nsString.substring(with: match.rangeAt(2))
                 newPhotosArr?.append(Photo(thumbUrl, originalUrl))
             }
             
