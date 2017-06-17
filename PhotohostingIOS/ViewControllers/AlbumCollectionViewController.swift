@@ -17,22 +17,27 @@ class AlbumCollectionViewController:
     UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout
 {
-    private var photosFetcher = PhotosFetcher()
     private var photosArr: [Photo]?
+    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let server = "http://rhea.intelib.org:8000"
+        let photosFetcher = PhotosFetcher(server)
+        
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         
-        photosFetcher.getPhotos() { newPhotosArr in
+        photosFetcher.getPhotos(relativeUrl: "/static/users/gibsn/Idp0kdFm9CMgNNdH.html") { newPhotosArr in
             if newPhotosArr != nil {
                 self.photosArr = newPhotosArr
                 self.collectionView.reloadData()
                 self.activityIndicator.stopAnimating()
+            } else {
+                NSLog("Some error happened")
             }
         }
     }

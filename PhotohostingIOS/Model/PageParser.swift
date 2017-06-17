@@ -21,26 +21,21 @@ struct Photo {
 }
 
 class PhotosFetcher {
-    private let root = "http://gibsn.intelib.org/"
-    private let URL = "http://gibsn.intelib.org/album/posvyat.html"
-    private var photosArr: [Photo]? = nil
+    private var root: String
+    
+    init(_ _root: String) {
+        root = _root
+    }
 
     private func parsePage(_ pageText: String) -> [Photo]? {
         do {
-            let pattern = "<a href=\"(.*jpg)\">\n.*\n.*<img src=\"(.*png)\" alt"
+            let pattern = "<a href=\"(.*jpg)\">\n.*\n.*<img src=\"(.*jpg)\" alt"
             let regex = try NSRegularExpression(pattern: pattern)
             let nsString = pageText as NSString
             let matches = regex.matches(in: pageText, range: NSRange(location: 0, length: nsString.length))
             
-            var newPhotosArr: [Photo]? = {
-                if matches.count > 0 {
-                    return []
-                } else {
-                    return nil
-                }
-            }()
-            
-            
+            var newPhotosArr: [Photo]? = matches.count > 0 ? [] : nil
+
             for match in matches {
                 let originalUrl = self.root + nsString.substring(with: match.rangeAt(1))
                 let thumbUrl = self.root + nsString.substring(with: match.rangeAt(2))
@@ -54,18 +49,17 @@ class PhotosFetcher {
         }
     }
     
-    public func getPhotos(completionHandler: @escaping ([Photo]?) -> Void) {
-        if photosArr == nil {
-            Alamofire.request(URL).response { response in
-                if let data = response.data, let pageText = String(data: data, encoding: .utf8) {
-                    NSLog("Got HTML %@", self.URL)
-                    self.photosArr = self.parsePage(pageText)
-                    NSLog("Finished parsing web-page")
-                    
-                    completionHandler(self.photosArr)
-                } else {
-                    NSLog("Could not get the page with the photos")
-                }
+    public func getPhotos(relativeUrl: String, completionHandler: @escaping ([Photo]?) -> Void) {
+        Alamofire.request(self.root + relativeUrl).response { response in
+            if let data = response.data, let pageText = String(data: data, encoding: .utf8) {
+                NSLog("Got HTML %@", self.root + relativeUrl)
+
+                let photos = self.parsePage(pageText)
+                NSLog("Finished parsing web-page")
+                
+                completionHandler(photos)
+            } else {
+                NSLog("Could not get page with the photos")
             }
         }
     }
